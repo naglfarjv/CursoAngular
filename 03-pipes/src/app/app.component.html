@@ -1,0 +1,162 @@
+<h1 class="mt-3">PIPES <small>angular</small></h1>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Variable</th>
+                    <th>Pipe</th>
+                    <th>Salida</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{nombre2}}</td>
+                    <td> Capitalizado </td>
+                    <td>{{nombre2 | capitalizado }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td> uppercase </td>
+                    <td>{{nombre | uppercase}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td> lowercase </td>
+                    <td>{{nombre | lowercase}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td> slice :3 </td>
+                    <td>{{nombre | slice:3}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td> slice 0:3 </td>
+                    <td>{{nombre | slice:0:3}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{arreglo}}</td>
+                    <td> slice 1:5 </td>
+                    <td>{{arreglo | slice:1:5}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{PI}}</td>
+                    <td> number (3 enteros y 0 decimal)</td>
+                    <td>{{PI | number:'3.0-0'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{PI}}</td>
+                    <td> number (todos los enteros y hasta 2 decimal)</td>
+                    <td>{{PI | number:'.0-2'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{porcentaje}}</td>
+                    <td> percent</td>
+                    <td>{{porcentaje | percent}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{porcentaje}}</td>
+                    <td> percent</td>
+                    <td>{{porcentaje | percent:'2.2-2'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{salario}}</td>
+                    <td> currency</td>
+                    <td>{{salario | currency}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{salario}}</td>
+                    <td> currency CLP</td>
+                    <td>{{salario | currency: 'CLP'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{salario}}</td>
+                    <td> currency CLP</td>
+                    <td>{{salario | currency: 'ARS':'symbol-narrow':'.0-0'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{promesa}}</td>
+                    <td> async </td>
+                    <td>{{promesa | async}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td> date medim</td>
+                    <td>{{fecha | date:'medium'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td> date short</td>
+                    <td>{{fecha | date:'short'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td> date mes en palabra y dias
+                        <td>{{fecha | date:'MMMM - dd'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td> date mes en palabra y dias {{idioma}}
+                        <br>
+                        <button (click)="idioma='es-CL'" class="mr-1 btn btn-primary">Español</button>
+                        <button (click)="idioma='en'" class="mr-1 btn btn-secondary">Ingles</button>
+                        <button (click)="idioma='fr'" class="mr-1 btn btn-success">Frances</button>
+                    </td>
+                    <td>{{fecha | date:'MMMM - dd':'':idioma }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td> tarea contraseña {{contrasena}}
+                        <br>
+                        <button (click)="contrasena=!contrasena" class="mr-1 btn btn-primary">Mostrar/Ocultar</button>
+                    </td>
+                    <td>{{nombre | contrasena: contrasena}}</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+
+        <h4>Slice LI5:20</h4>
+        <ul>
+            <li *ngFor="let item of arreglo"> {{item}} </li>
+        </ul>
+
+        <h3>JSON</h3>
+        <hr>
+        <pre>
+          <div >{{heroe | json}}</div>
+        </pre>
+
+        <h3>Dom Seguro</h3>
+        <hr>
+        <div class="col">
+            <div class="row mb-5">
+                <iframe width="560" height="315" [src]="videoURL | domseguro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+            </div>
+        </div>
+    </div>
+</div>
